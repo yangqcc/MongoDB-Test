@@ -1,4 +1,4 @@
-package com.yqc.repository;
+package com.yqc.query;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;

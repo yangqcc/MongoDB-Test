@@ -39,7 +39,7 @@ public class MongoApp {
         ApplicationContext annotationContext = new AnnotationConfigApplicationContext("com.yqc");
         // 创建bean的引用对象
         MongoOperations mongoOperations = annotationContext.getBean("mongoTemplate", MongoTemplate.class);
-        Person p = new Person("Joe", 34);
+        Person p = new Person("Joe", 34, "orange");
         mongoOperations.insert(p);
 
         p = mongoOperations.findById(p.getId(), Person.class);
