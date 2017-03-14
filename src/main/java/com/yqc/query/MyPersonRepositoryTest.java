@@ -21,13 +21,19 @@ public class MyPersonRepositoryTest {
 
     public void test() {
         List<Person> personList = myPersonRepository.findAll();
-        List<Person> insertPersonList = new ArrayList<>(10);
+        /**
+         * 新增
+         */
+/*        List<Person> insertPersonList = new ArrayList<>(10);
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 insertPersonList.add(new Person(("yangqc_" + i), new Point(i, j)));
             }
         }
-        myPersonRepository.insert(insertPersonList);
+        myPersonRepository.insert(insertPersonList);*/
+/**
+ * 测试查询
+ */
 //        personList = myPersonRepository.findByThePersonName("yangqc");
 //        personList = myPersonRepository.findByName("yangqc_1");
 //        personList=myPersonRepository.findByNameAndAge("yangqc_1",1);
@@ -35,6 +41,7 @@ public class MyPersonRepositoryTest {
 //        personList = myPersonRepository.findByNameOrAge("yangqc_1", 9);
 //        myPersonRepository.deleteByAgeBetween(0, 3);
 //        myPersonRepository.findByNameLike("_");
+        personList = myPersonRepository.findByThePersonName("yangqc_1");
         for (Person person : personList) {
             System.out.println(person);
         }
