@@ -1,4 +1,4 @@
-package com.yqc.getMongoDBConnection;
+package com.yqc.connection;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;

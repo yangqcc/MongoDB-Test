@@ -1,4 +1,4 @@
-package com.yqc.getMongoDBConnection;
+package com.yqc.connection;
 
 import com.yqc.Person;
 import org.springframework.context.ApplicationContext;
