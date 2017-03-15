@@ -1,10 +1,13 @@
 package com.yqc.query;
 
+import com.yqc.MyPerson;
 import com.yqc.Person;
 import com.yqc.Point;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -19,18 +22,23 @@ public class MyPersonRepositoryTest {
     @Autowired
     MyPersonRepository myPersonRepository;
 
+    @Autowired
+    MongoOperations mongoOperations;
+
+    @Autowired
+    MongoRepository mongoRepository;
+
     public void test() {
-        List<Person> personList = myPersonRepository.findAll();
-        /**
+/*        List<Person> personList = myPersonRepository.findAll();
+        System.out.println(mongoRepository);
+        *//**
          * 新增
-         */
-/*        List<Person> insertPersonList = new ArrayList<>(10);
+         *//*
+        List<Person> insertPersonList = new ArrayList<>(10);
         for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                insertPersonList.add(new Person(("yangqc_" + i), new Point(i, j)));
-            }
-        }
-        myPersonRepository.insert(insertPersonList);*/
+            insertPersonList.add(new MyPerson(("my_yangqc_" + i), i));
+        }*/
+//        myPersonRepository.insert(insertPersonList);
 /**
  * 测试查询
  */
@@ -41,8 +49,8 @@ public class MyPersonRepositoryTest {
 //        personList = myPersonRepository.findByNameOrAge("yangqc_1", 9);
 //        myPersonRepository.deleteByAgeBetween(0, 3);
 //        myPersonRepository.findByNameLike("_");
-        personList = myPersonRepository.findByThePersonName("yangqc_1");
-        for (Person person : personList) {
+        List<MyPerson> personList = myPersonRepository.findByName("my_yangqc_1");
+        for (MyPerson person : personList) {
             System.out.println(person);
         }
     }

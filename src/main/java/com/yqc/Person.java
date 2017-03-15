@@ -21,7 +21,6 @@ public class Person {
     private String name;
     private int age;
     private String favorite;
-    private Point point;
 
     public Person() {
     }
@@ -35,11 +34,6 @@ public class Person {
         this.name = name;
         this.age = age;
         this.favorite = favorite;
-    }
-
-    public Person(String name, Point point) {
-        this.name = name;
-        this.point = point;
     }
 
     public void setId(String id) {
@@ -81,7 +75,6 @@ public class Person {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", favorite='" + favorite + '\'' +
-                ", point=" + point +
                 '}';
     }
 }

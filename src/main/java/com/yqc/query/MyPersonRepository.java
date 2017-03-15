@@ -1,5 +1,6 @@
 package com.yqc.query;
 
+import com.yqc.MyPerson;
 import com.yqc.Person;
 import com.yqc.Point;
 import org.slf4j.LoggerFactory;
@@ -16,8 +17,8 @@ public interface MyPersonRepository extends MongoRepository<Person, String> {
     @Query("{'name':?0}")
     List<Person> findByThePersonName(String name);
 
-    @Query(fields = "{'age':1,'favorite':1}")
-    List<Person> findByName(String name);
+//    @Query(fields = "{'age':1,'favorite':1}")
+//    List<Person> findByName(String name);
 
     List<Person> findByNameAndAge(String name, int age);
 
@@ -28,5 +29,7 @@ public interface MyPersonRepository extends MongoRepository<Person, String> {
     List<Person> deleteByAgeBetween(int age1, int age2);
 
     List<Person> findByNameLike(String name);
+
+    List<MyPerson> findByName(String name);
 
 }
