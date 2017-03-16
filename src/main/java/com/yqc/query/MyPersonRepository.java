@@ -32,4 +32,6 @@ public interface MyPersonRepository extends MongoRepository<Person, String> {
 
     List<MyPerson> findByName(String name);
 
+//    int f();
+
 }

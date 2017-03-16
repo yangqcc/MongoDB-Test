@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.query.MongoEntityInformation;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -57,10 +58,16 @@ public class MyPersonRepositoryTest {
         }*/
     }
 
+    public void findByCount() {
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         ApplicationContext annotationContext = new AnnotationConfigApplicationContext("com.yqc.query");
         // 创建bean的引用对象
         MyPersonRepositoryTest myPersonRepositoryTest = annotationContext.getBean("myPersonRepositoryTest", MyPersonRepositoryTest.class);
-        myPersonRepositoryTest.test();
+//        myPersonRepositoryTest.test();
+//        myPersonRepositoryTest.findByCount();
+        System.out.println(myPersonRepositoryTest.mongoOperations.getCollectionName(Person.class));
     }
 }
