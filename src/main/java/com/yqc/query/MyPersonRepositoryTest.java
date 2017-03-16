@@ -29,16 +29,16 @@ public class MyPersonRepositoryTest {
     MongoRepository mongoRepository;
 
     public void test() {
-/*        List<Person> personList = myPersonRepository.findAll();
+        List<Person> personList = myPersonRepository.findAll();
         System.out.println(mongoRepository);
-        *//**
+        /*
          * 新增
-         *//*
+         */
         List<Person> insertPersonList = new ArrayList<>(10);
         for (int i = 0; i < 10; i++) {
-            insertPersonList.add(new MyPerson(("my_yangqc_" + i), i));
-        }*/
-//        myPersonRepository.insert(insertPersonList);
+            insertPersonList.add(new Person(("my_yangqc_" + i), i));
+        }
+        myPersonRepository.insert(insertPersonList);
 /**
  * 测试查询
  */
@@ -49,10 +49,12 @@ public class MyPersonRepositoryTest {
 //        personList = myPersonRepository.findByNameOrAge("yangqc_1", 9);
 //        myPersonRepository.deleteByAgeBetween(0, 3);
 //        myPersonRepository.findByNameLike("_");
-        List<MyPerson> personList = myPersonRepository.findByName("my_yangqc_1");
+
+
+      /*  List<MyPerson> personList = myPersonRepository.findByName("my_yangqc_1");
         for (MyPerson person : personList) {
             System.out.println(person);
-        }
+        }*/
     }
 
     public static void main(String[] args) {
