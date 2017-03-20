@@ -14,6 +14,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 public class ApplicationConfig extends AbstractMongoConfiguration {
 
+    public static final String collectionName = "t_db"; //MY_DB
+
     @Override
     public Mongo mongo() throws Exception {
         return new MongoClient("localhost", 27017);
@@ -21,6 +23,6 @@ public class ApplicationConfig extends AbstractMongoConfiguration {
 
     @Override
     protected String getDatabaseName() {
-        return "MY_DB";
+        return collectionName;
     }
 }
