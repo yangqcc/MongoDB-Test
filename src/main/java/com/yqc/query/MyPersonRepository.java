@@ -14,11 +14,11 @@ import java.util.List;
  */
 public interface MyPersonRepository extends MongoRepository<Person, String> {
 
-    @Query("{'name':?0}")
+    @Query("{'sayHello':?0}")
     List<Person> findByThePersonName(String name);
 
 //    @Query(fields = "{'age':1,'favorite':1}")
-//    List<Person> findByName(String name);
+//    List<Person> sayHello(String sayHello);
 
     List<Person> findByNameAndAge(String name, int age);
 

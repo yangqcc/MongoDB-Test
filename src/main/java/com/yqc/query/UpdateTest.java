@@ -29,18 +29,18 @@ public class UpdateTest {
     MongoOperations mongoOperations;
 
     public void updateDocument() {
-        UpdateResult updateResult = mongoOperations.updateMulti(new Query(where("name").is("orange")), update("name", "Not_Oragne"), Fruit.class);
+        UpdateResult updateResult = mongoOperations.updateMulti(new Query(where("sayHello").is("orange")), update("sayHello", "Not_Oragne"), Fruit.class);
     }
 
     public void testGroup() {
-        GroupBy groupBy = GroupBy.key("name");
+        GroupBy groupBy = GroupBy.key("sayHello");
         GroupByResults<Person> personGroupByResults = mongoOperations.group(Criteria.where("age").lte(10).gte(0), "person", groupBy, Person.class);
         /* System.out.println(personGroupByResults.getKeys());
         System.out.println(personGroupByResults.getCount());*/
     }
 
     public void testConverter() {
-        List<LimitPerson> limitPersonList = mongoOperations.find(Query.query(where("name").is("person2")), LimitPerson.class, "person");
+        List<LimitPerson> limitPersonList = mongoOperations.find(Query.query(where("sayHello").is("person2")), LimitPerson.class, "person");
 //        System.out.println(limitPersonList.size());
         for (LimitPerson limitPerson : limitPersonList) {
             System.out.println(limitPerson);

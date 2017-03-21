@@ -44,7 +44,7 @@ public class MyPersonRepositoryTest {
  * 测试查询
  */
 //        personList = myPersonRepository.findByThePersonName("yangqc");
-//        personList = myPersonRepository.findByName("yangqc_1");
+//        personList = myPersonRepository.sayHello("yangqc_1");
 //        personList=myPersonRepository.findByNameAndAge("yangqc_1",1);
 //        personList = myPersonRepository.findByNameOrNameOrName("yangqc_1", "yangqc_2","yangqc_8");
 //        personList = myPersonRepository.findByNameOrAge("yangqc_1", 9);
@@ -52,7 +52,7 @@ public class MyPersonRepositoryTest {
 //        myPersonRepository.findByNameLike("_");
 
 
-      /*  List<MyPerson> personList = myPersonRepository.findByName("my_yangqc_1");
+      /*  List<MyPerson> personList = myPersonRepository.sayHello("my_yangqc_1");
         for (MyPerson person : personList) {
             System.out.println(person);
         }*/

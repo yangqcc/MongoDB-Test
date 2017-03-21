@@ -1,6 +1,7 @@
 package com.yqc;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,6 +23,7 @@ public class Person {
     private int age;
     private String favorite;
 
+    @PersistenceConstructor
     public Person() {
     }
 
@@ -72,7 +74,7 @@ public class Person {
     public String toString() {
         return "Person{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", sayHello='" + name + '\'' +
                 ", age=" + age +
                 ", favorite='" + favorite + '\'' +
                 '}';

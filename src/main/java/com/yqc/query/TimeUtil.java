@@ -33,10 +33,10 @@ public class TimeUtil {
     MongoTemplate mongoTemplate;
 
     public void testGroup() {
-        GroupBy groupBy = GroupBy.key("name");
+        GroupBy groupBy = GroupBy.key("sayHello");
      /*   List<Person> personList = operations.find(Query.query(Criteria.where("age").lte(10).gte(0)), Person.class);
         System.out.println(personList.size());*/
-        GroupByResults<GroupFinalType> personGroupByResults = operations.group(Criteria.where("age").lte(10).gte(0), "person", new GroupBy("name"), GroupFinalType.class);
+        GroupByResults<GroupFinalType> personGroupByResults = operations.group(Criteria.where("age").lte(10).gte(0), "person", new GroupBy("sayHello"), GroupFinalType.class);
         /* System.out.println(personGroupByResults.getKeys());
         System.out.println(personGroupByResults.getCount());*/
     }

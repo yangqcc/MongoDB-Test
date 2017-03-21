@@ -21,9 +21,9 @@ public class MongoDBJDBC {
             MongoDatabase mongoDatabase = mongoClient.getDatabase("MY_DB");
             System.out.println("Connect to database successfully");
             MongoCollection<Document> col = mongoDatabase.getCollection("TestMongoDB");
-            Document document = new Document("name", "MongoDB").append("type", "dataBase");
+            Document document = new Document("sayHello", "MongoDB").append("type", "dataBase");
             col.insertOne(document);
-            document = Document.parse("{'name':'java'}");
+            document = Document.parse("{'sayHello':'java'}");
             col.insertOne(document);
             List<Document> documents = new ArrayList<Document>();
             for (int i = 0; i < 10; i++) {

@@ -17,7 +17,7 @@ public class MongoTemplateTest {
         ApplicationContext annotationContext = new AnnotationConfigApplicationContext("com.yqc");
         MongoOperations mongoOperations = annotationContext.getBean("mongoTemplate", MongoTemplate.class);
         mongoOperations.insert(new Person("期成", 21, "orange"));
-        Person person = mongoOperations.findOne(query(where("name").is("期成")), Person.class);
+        Person person = mongoOperations.findOne(query(where("sayHello").is("期成")), Person.class);
         System.out.print(person);
     }
 }

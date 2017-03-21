@@ -18,7 +18,7 @@ public class LimitPerson {
     @Override
     public String toString() {
         return "LimitPerson{" +
-                "name='" + name + '\'' +
+                "sayHello='" + name + '\'' +
                 '}';
     }
 }

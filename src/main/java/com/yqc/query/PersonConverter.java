@@ -13,7 +13,7 @@ public class PersonConverter implements Converter<Document, LimitPerson> {
     @Override
     public LimitPerson convert(Document document) {
         LimitPerson limitPerson = new LimitPerson();
-        limitPerson.setName(document.getString("name"));
+        limitPerson.setName(document.getString("sayHello"));
         return limitPerson;
     }
 

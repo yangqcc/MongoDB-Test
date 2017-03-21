@@ -66,7 +66,7 @@ public class SaveAndInsert {
         BasicDBObject basicDBObject = new BasicDBObject();
 
         //mongoDB原生查询方法
-       /* BasicDBObject basicDBObject = new BasicDBObject("name", "yangqc1");
+       /* BasicDBObject basicDBObject = new BasicDBObject("sayHello", "yangqc1");
         basicDBObject.append("favorite", "favorite1");
         basicDBObject.append("age", 1);
         FindIterable<Document> personFindIterable = mongoOperations.getCollection("person").find(basicDBObject);
@@ -79,13 +79,13 @@ public class SaveAndInsert {
          * spring查询方法
          */
 
-        Query query = Query.query(Criteria.where("name").is("yangqc1").andOperator(Criteria.where("age").is(1).andOperator(Criteria.where("favorite").is("favorite1"))));
+        Query query = Query.query(Criteria.where("sayHello").is("yangqc1").andOperator(Criteria.where("age").is(1).andOperator(Criteria.where("favorite").is("favorite1"))));
         List<Person> personList = mongoOperations.find(query, Person.class);
         for (Person person : personList) {
             System.out.println(person);
         }
 
-        Bson bson = Filters.or(Filters.eq("favorite", "favorite1"), Filters.eq("name", "yangqc1"), Filters.eq("age", 5));
+        Bson bson = Filters.or(Filters.eq("favorite", "favorite1"), Filters.eq("sayHello", "yangqc1"), Filters.eq("age", 5));
         FindIterable<Document> documents = mongoOperations.getCollection("person").find(bson);
         for (Document document : documents) {
             System.out.println(document.toJson());
@@ -94,33 +94,33 @@ public class SaveAndInsert {
 
     public void increment() {
         Update update = new Update().inc("age", -1);
-        mongoOperations.updateFirst(Query.query(Criteria.where("name").is("yangqc1")), update, Person.class);
-        System.out.println(mongoOperations.findOne(Query.query(Criteria.where("name").is("yangqc1")), Person.class));
+        mongoOperations.updateFirst(Query.query(Criteria.where("sayHello").is("yangqc1")), update, Person.class);
+        System.out.println(mongoOperations.findOne(Query.query(Criteria.where("sayHello").is("yangqc1")), Person.class));
     }
 
     public void basicIncrement() {
-        Bson filter = Filters.and(Filters.eq("name", "yangqc1"), Filters.eq("favorite", "favorite1"));
+        Bson filter = Filters.and(Filters.eq("sayHello", "yangqc1"), Filters.eq("favorite", "favorite1"));
         Bson update = new BasicDBObject("$inc", new BasicDBObject("age", 1));
         mongoOperations.getCollection("person").findOneAndUpdate(filter, update);
-        System.out.println(mongoOperations.findOne(Query.query(Criteria.where("name").is("yangqc1")), Person.class));
+        System.out.println(mongoOperations.findOne(Query.query(Criteria.where("sayHello").is("yangqc1")), Person.class));
     }
 
     public void searchBasicObject() {
-       /* Bson bson = new BasicDBObject("name", "yangqc2").append("favorite", "favorite2").append("age", 2);
+       /* Bson bson = new BasicDBObject("sayHello", "yangqc2").append("favorite", "favorite2").append("age", 2);
 //        System.out.println(bson);
         FindIterable<Document> findIterable = mongoOperations.getCollection("person").find(bson);
         for (Document document : findIterable) {
             System.out.println(document.toJson());
         }*/
 
-        Query query = Query.query(where("favorite").is("favorite2").and("name").is("yangqc2"));
+        Query query = Query.query(where("favorite").is("favorite2").and("sayHello").is("yangqc2"));
         Update update = new Update().inc("age", 1);
         mongoOperations.updateFirst(query, update, Person.class);
         System.out.println(mongoOperations.findOne(query, Person.class));
     }
 
     public void update() {
-        Person person = mongoOperations.findOne(Query.query(where("name").is("yangqc8")), Person.class);
+        Person person = mongoOperations.findOne(Query.query(where("sayHello").is("yangqc8")), Person.class);
         person.setName(null);
         person.setFavorite(null);
         mongoOperations.save(person);

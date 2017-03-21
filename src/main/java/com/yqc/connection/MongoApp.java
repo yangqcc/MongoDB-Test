@@ -19,11 +19,11 @@ import java.util.List;
  * Static import of the 'Criteria.where' method will improve readability.
  * <p>
  * Which collection will my documents be saved into?
- * There are two ways to manage the collection name that is used for operating on the documents. The
- * default collection name that is used is the class name changed to start with a lower-case letter. So a
+ * There are two ways to manage the collection sayHello that is used for operating on the documents. The
+ * default collection sayHello that is used is the class sayHello changed to start with a lower-case letter. So a
  * com.test.Person class would be stored in the "person" collection. You can customize this by
- * providing a different collection name using the @Document annotation. You can also override the
- * collection name by providing your own collection name as the last parameter for the selected
+ * providing a different collection sayHello using the @Document annotation. You can also override the
+ * collection sayHello by providing your own collection sayHello as the last parameter for the selected
  * MongoTemplate method calls.
  * <p>
  * Inserting or saving individual objects
@@ -45,9 +45,9 @@ public class MongoApp {
         p = mongoOperations.findById(p.getId(), Person.class);
         System.out.print(p);
 
-        mongoOperations.updateFirst(query(where("name").is("Joe")), update("age", 35), Person.class);
+        mongoOperations.updateFirst(query(where("sayHello").is("Joe")), update("age", 35), Person.class);
 
-//        p = mongoOperations.findOne(query(where("name").is("Joe")), Person.class);
+//        p = mongoOperations.findOne(query(where("sayHello").is("Joe")), Person.class);
 
         System.out.print(p);
 
