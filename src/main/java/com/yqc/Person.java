@@ -5,6 +5,10 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.Date;
+
 /**
  * Created by Administrator on 2017/3/12.
  *
@@ -22,6 +26,7 @@ public class Person {
     private String name;
     private int age;
     private String favorite;
+    private LocalDate operationTime;
 
     @PersistenceConstructor
     public Person() {
@@ -68,6 +73,14 @@ public class Person {
 
     public String getFavorite() {
         return favorite;
+    }
+
+    public LocalDate getOperationTime() {
+        return operationTime;
+    }
+
+    public void setOperationTime(LocalDate operationTime) {
+        this.operationTime = operationTime;
     }
 
     @Override

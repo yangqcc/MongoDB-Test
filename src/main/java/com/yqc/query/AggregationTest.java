@@ -2,9 +2,6 @@ package com.yqc.query;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.AggregateIterable;
-import com.mongodb.client.model.Filters;
-import com.yqc.Person;
-import org.bson.BasicBSONObject;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -13,16 +10,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.aggregation.*;
-import org.springframework.data.mongodb.core.mapreduce.GroupBy;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Component;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.newAggregation;
 
