@@ -2,6 +2,7 @@ package com.yqc.lambda;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -9,8 +10,19 @@ import java.util.List;
  * 函数式编程
  */
 public class Test1 {
+
+    public static void myComparator(String s1, String s2) {
+        Comparator<String> comparator = (s3, s4) -> {
+            System.out.println("this is MyComparator!");
+            return s1.compareToIgnoreCase(s2);
+        };
+
+        System.out.println(comparator.compare(s1, s2));
+//        return c;
+    }
+
     public static void main(String[] args) {
-        final List<BigDecimal> prices = Arrays.asList(
+        /*final List<BigDecimal> prices = Arrays.asList(
                 new BigDecimal("10"),
                 new BigDecimal("30"),
                 new BigDecimal("17"),
@@ -27,11 +39,11 @@ public class Test1 {
             }
         }
         System.out.println(totalOfDiscountedPrices);
-
         //更优雅的方式
         final BigDecimal totalOfDiscountedPrices2 = prices.stream().filter(price -> price.compareTo(BigDecimal.valueOf(20)) > 0)
                 .map(price -> price.multiply(BigDecimal.valueOf(0.9)))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-        System.out.println(totalOfDiscountedPrices2);
+        System.out.println(totalOfDiscountedPrices2);*/
+        myComparator("yangqc", "YANGQC");
     }
 }
