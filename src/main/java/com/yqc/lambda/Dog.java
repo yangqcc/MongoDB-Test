@@ -1,20 +1,20 @@
 package com.yqc.lambda;
 
 /**
- * Created by yangqc on 2017/4/2.
+ * Created by yangqc on 2017/4/3.
  */
-public class Person {
+public class Dog {
 
     private String name;
     private int age;
 
-    public Person(String name, int age) {
-        this.age = age;
+    public Dog(String name, int age) {
         this.name = name;
+        this.age = age;
     }
 
-    public int getAge() {
-        return age;
+    public Dog(String name) {
+        this.name = name;
     }
 
     public String getName() {
@@ -25,13 +25,17 @@ public class Person {
         this.name = name;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Dog{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';

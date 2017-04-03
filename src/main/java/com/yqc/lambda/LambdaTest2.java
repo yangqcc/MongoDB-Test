@@ -1,9 +1,6 @@
 package com.yqc.lambda;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -12,23 +9,23 @@ import java.util.stream.Collectors;
 public class LambdaTest2 {
 
     public static void testSearch() {
-        List<People> peopleList = new ArrayList<>();
+        List<Dog> dogList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            peopleList.add(new People("yangqc" + i));
+            dogList.add(new Dog("yangqc" + i));
         }
 
-        List<Person> personList = new ArrayList<>();
+        List<Cat> catList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            personList.add(new Person("yangqc" + i, i));
+            catList.add(new Cat("yangqc" + i, i));
         }
 
         /**
          * 设置值
          */
-        List<People> peopleList1 = peopleList.stream().map(people -> {
-            Person person1 = null;
-            if ((person1 = personList.stream().distinct().filter(person -> people.getName().equals(person.getName())).findFirst().orElse(null)) != null) {
-                people.setAge(person1.getAge());
+        List<Dog> finalDogList = dogList.stream().map(people -> {
+            Cat cat1 = null;
+            if ((cat1 = catList.stream().distinct().filter(cat -> people.getName().equals(cat.getName())).findFirst().orElse(null)) != null) {
+                people.setAge(cat1.getAge());
             }
             return people;
         }).collect(Collectors.toList());
@@ -36,15 +33,15 @@ public class LambdaTest2 {
         /**
          * 测试anyMatch
          */
-        System.out.println(peopleList1.stream().anyMatch(people -> people.getName().equals("yangqc2")));
+        System.out.println(dogList.stream().anyMatch(dog -> dog.getName().equals("yangqc2")));
 
         /**
          * 测试allMatch
          */
-        System.out.println(peopleList1.stream().allMatch(people -> people.getName().equals("yangqc2")));
+        System.out.println(dogList.stream().allMatch(dog -> dog.getName().equals("yangqc2")));
 
-        for (People people : peopleList1) {
-            System.out.println(people);
+        for (Dog dog : finalDogList) {
+            System.out.println(dog);
         }
     }
 
@@ -52,33 +49,33 @@ public class LambdaTest2 {
      * map进行过滤
      */
     public static void testMap() {
-        Map<String, People> map = new HashMap<>();
-        List<Person> list = new ArrayList<>();
+        Map<String, Dog> map = new HashMap<>();
+        List<Cat> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            map.put("yangqc" + i, new People("yangqc" + i));
-            list.add(new Person("yangqc" + i, i));
+            map.put("yangqc" + i, new Dog("yangqc" + i));
+            list.add(new Cat("yangqc" + i, i));
         }
 
-        map.replaceAll((name, people) -> {
+        map.replaceAll((name, dog) -> {
             if (name.equals("yangqc1")) {
-                people.setAge(21);
+                dog.setAge(21);
             }
-            return people;
+            return dog;
         });
 
-        List<Person> finalList = list.stream().map(person -> {
-            People people = null;
-            if ((people = map.entrySet().stream().filter(entry -> person.getName().equals(entry.getKey())).findFirst().orElse(null).getValue()) != null) {
-                person.setAge(people.getAge());
+        List<Cat> finalList = list.stream().map(cat -> {
+            Dog dog = null;
+            if ((dog = map.entrySet().stream().filter(entry -> cat.getName().equals(entry.getKey())).findFirst().orElse(null).getValue()) != null) {
+                cat.setAge(dog.getAge());
             }
-            return person;
+            return cat;
         }).collect(Collectors.toList());
 
 //        for (Map.Entry<String, People> entry : map.entrySet()) {
 //            System.out.println(entry.getKey() + " ** " + entry.getValue());
 //        }
-        for (Person person : finalList) {
-            System.out.println(person);
+        for (Cat cat : finalList) {
+            System.out.println(cat);
         }
     }
 

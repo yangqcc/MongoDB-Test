@@ -21,7 +21,7 @@ import java.util.List;
  * Which collection will my documents be saved into?
  * There are two ways to manage the collection sayHello that is used for operating on the documents. The
  * default collection sayHello that is used is the class sayHello changed to start with a lower-case letter. So a
- * com.test.Person class would be stored in the "person" collection. You can customize this by
+ * com.test.Cat class would be stored in the "person" collection. You can customize this by
  * providing a different collection sayHello using the @Document annotation. You can also override the
  * collection sayHello by providing your own collection sayHello as the last parameter for the selected
  * MongoTemplate method calls.
@@ -47,7 +47,7 @@ public class MongoApp {
 
         mongoOperations.updateFirst(query(where("sayHello").is("Joe")), update("age", 35), Person.class);
 
-//        p = mongoOperations.findOne(query(where("sayHello").is("Joe")), Person.class);
+//        p = mongoOperations.findOne(query(where("sayHello").is("Joe")), Cat.class);
 
         System.out.print(p);
 
@@ -56,6 +56,6 @@ public class MongoApp {
         List<Person> people = mongoOperations.findAll(Person.class);
         System.out.print(people.size());
 
-//        mongoOperations.dropCollection(Person.class);
+//        mongoOperations.dropCollection(Cat.class);
     }
 }

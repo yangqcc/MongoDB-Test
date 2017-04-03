@@ -34,7 +34,7 @@ public class TimeUtil {
 
     public void testGroup() {
         GroupBy groupBy = GroupBy.key("sayHello");
-     /*   List<Person> personList = operations.find(Query.query(Criteria.where("age").lte(10).gte(0)), Person.class);
+     /*   List<Cat> personList = operations.find(Query.query(Criteria.where("age").lte(10).gte(0)), Cat.class);
         System.out.println(personList.size());*/
         GroupByResults<GroupFinalType> personGroupByResults = operations.group(Criteria.where("age").lte(10).gte(0), "person", new GroupBy("sayHello"), GroupFinalType.class);
         /* System.out.println(personGroupByResults.getKeys());

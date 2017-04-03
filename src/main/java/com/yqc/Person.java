@@ -85,7 +85,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Cat{" +
                 "id='" + id + '\'' +
                 ", sayHello='" + name + '\'' +
                 ", age=" + age +

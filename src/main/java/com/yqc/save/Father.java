@@ -1,20 +1,28 @@
-package com.yqc.lambda;
+package com.yqc.save;
+
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * Created by yangqc on 2017/4/3.
+ * Created by yangqc on 2017/4/1.
  */
-public class People {
+@Document(collection = "father")
+public class Father {
 
+    private String id;
     private String name;
     private int age;
 
-    public People(String name, int age) {
+    public Father(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    public People(String name) {
-        this.name = name;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -31,13 +39,5 @@ public class People {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "People{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
     }
 }

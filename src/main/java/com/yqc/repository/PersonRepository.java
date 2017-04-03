@@ -8,7 +8,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface PersonRepository extends PagingAndSortingRepository<Person, String>, PersonRepositoryCustom<Person> {
 
- /*   public List<Person> findByName(String name, Pageable pageable);
+ /*   public List<Cat> findByName(String name, Pageable pageable);
 
     *//**
      * 查询年龄大于指定数字的人
@@ -16,7 +16,7 @@ public interface PersonRepository extends PagingAndSortingRepository<Person, Str
      * @param age
      * @return
      *//*
-    public List<Person> findByAgeAfter(int age);
+    public List<Cat> findByAgeAfter(int age);
 
-    public List<Person> findByAgeGreaterThanEqual(int age);*/
+    public List<Cat> findByAgeGreaterThanEqual(int age);*/
 }

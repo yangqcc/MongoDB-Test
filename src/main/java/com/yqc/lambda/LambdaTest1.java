@@ -51,12 +51,12 @@ public class LambdaTest1 {
     }
 
     public static void main(String[] args) {
-        Person[] people = new Person[]{new Person("yangqc", 21), new Person("shijia", 13), new Person("chaochao", 21)};
+        Cat[] people = new Cat[]{new Cat("yangqc", 21), new Cat("shijia", 13), new Cat("chaochao", 21)};
 
-        Comparator<Person> byName = Comparator.comparing(p -> p.getName());
+        Comparator<Cat> byName = Comparator.comparing(p -> p.getName());
 
         Arrays.sort(people, byName);
 
-        Person person = new Person("yangqc", 21);
+        Cat cat = new Cat("yangqc", 21);
     }
 }

@@ -19,7 +19,7 @@ public class MongoApp {
         mongoOps.insert(new Person("Joe", 34, "orange"));
         Person person = mongoOps.findOne(query(where("sayHello").is("Joe")), Person.class);
         System.out.print(person);
-//        log.info(mongoOps.findOne(new Query(where("sayHello").is("Joe")), Person.class));
+//        log.info(mongoOps.findOne(new Query(where("sayHello").is("Joe")), Cat.class));
 //        mongoOps.dropCollection("person");
     }
 }
