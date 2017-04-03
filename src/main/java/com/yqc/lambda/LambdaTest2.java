@@ -35,14 +35,21 @@ public class LambdaTest2 {
          */
         System.out.println(dogList.stream().anyMatch(dog -> dog.getName().equals("yangqc2")));
 
+//        System.out.println(dogList.stream().allMatch());
+
+        Collections.sort(dogList, Comparator.comparing(Dog::getName));
+
         /**
          * 测试allMatch
          */
         System.out.println(dogList.stream().allMatch(dog -> dog.getName().equals("yangqc2")));
 
-        for (Dog dog : finalDogList) {
-            System.out.println(dog);
-        }
+        finalDogList.forEach(System.out::println);
+
+        /**
+         * 自定义方法z
+         */
+        finalDogList.forEach(new Operate()::add);
     }
 
     /**
@@ -63,7 +70,7 @@ public class LambdaTest2 {
             return dog;
         });
 
-        List<Cat> finalList = list.stream().map(cat -> {
+        List<Cat> catList = list.stream().map(cat -> {
             Dog dog = null;
             if ((dog = map.entrySet().stream().filter(entry -> cat.getName().equals(entry.getKey())).findFirst().orElse(null).getValue()) != null) {
                 cat.setAge(dog.getAge());
@@ -71,16 +78,11 @@ public class LambdaTest2 {
             return cat;
         }).collect(Collectors.toList());
 
-//        for (Map.Entry<String, People> entry : map.entrySet()) {
-//            System.out.println(entry.getKey() + " ** " + entry.getValue());
-//        }
-        for (Cat cat : finalList) {
-            System.out.println(cat);
-        }
+        catList.forEach(System.out::println);
     }
 
     public static void main(String[] args) {
-//        testSearch();
-        testMap();
+        testSearch();
+//        testMap();
     }
 }
