@@ -11,6 +11,7 @@ public class MyImplement {
             public void sayName(String name) {
 
             }
+
         };
 
     }
@@ -18,7 +19,7 @@ public class MyImplement {
     public static void main(String[] args) {
         MyInterface myInterface = (name) -> {
             System.out.println("this is sayName;");
-            System.out.println(name);
+//            System.out.println(name);
         };
 
         myInterface.sayName("yangqc!");

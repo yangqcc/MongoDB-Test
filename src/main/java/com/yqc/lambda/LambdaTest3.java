@@ -9,7 +9,7 @@ import java.util.List;
  * Created by yangqc on 2017/3/15.
  * 函数式编程
  */
-public class Test1 {
+public class LambdaTest3 {
 
     public static void myComparator(String s1, String s2) {
         Comparator<String> comparator = (s3, s4) -> {
