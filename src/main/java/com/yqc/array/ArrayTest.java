@@ -64,7 +64,7 @@ public class ArrayTest {
     public void lookUpOperate() {
       /*  LookupOperation lookUp = Aggregation.lookup("vegetable", "appleList.appleName", "appleList.appleName", "list");
         Aggregation aggregation = Aggregation.newAggregation(lookUp);
-        AggregationResults<EntityInfo> entityInfos = mongoOperations.aggregate(aggregation, Fruit.class, EntityInfo.class);
+        AggregationResults<EntityInfo> entityInfos = mongoOperations.aggregate(aggregation, MyEntity.class, EntityInfo.class);
         for (EntityInfo entityInfo : entityInfos) {
             System.out.println(entityInfo);
             for (Apple apple : entityInfo.getList()) {

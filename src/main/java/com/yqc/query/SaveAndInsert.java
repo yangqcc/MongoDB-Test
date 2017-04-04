@@ -42,9 +42,9 @@ public class SaveAndInsert {
     public void saveAndInsert() {
         List<Fruit> fruitList = new ArrayList<Fruit>();
 /*        for (int i = 0; i < 10; i++) {
-            fruitList.add(new Fruit(new Integer(i).toString(), "orange" + i));
+            fruitList.add(new MyEntity(new Integer(i).toString(), "orange" + i));
         }
-        mongoOperations.insert(fruitList, Fruit.class);*/
+        mongoOperations.insert(fruitList, MyEntity.class);*/
         List multipleList = new ArrayList();
         for (int i = 0; i < 10; i++) {
             multipleList.add(new Fruit("orange"));
@@ -56,10 +56,10 @@ public class SaveAndInsert {
          * insertAll居然可以混合插入
          */
         mongoOperations.insertAll(multipleList);
-        /*List<Fruit> fruitList1 = mongoOperations.findAll(Fruit.class);
+        /*List<MyEntity> fruitList1 = mongoOperations.findAll(MyEntity.class);
         fruitList1.get(0).setName("Apple");
-        mongoOperations.save(new Fruit("xxx"));
-        mongoOperations.insert(new Fruit("2", "Orange"));*/
+        mongoOperations.save(new MyEntity("xxx"));
+        mongoOperations.insert(new MyEntity("2", "Orange"));*/
     }
 
     public void search() {

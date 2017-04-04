@@ -1,4 +1,4 @@
-package com.yqc.lookup;
+package com.yqc.repository;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 public class ApplicationConfig extends AbstractMongoConfiguration {
 
-    public static final String collectionName = "MyTest"; //MY_DB
+    public static final String collectionName = "MY_DB";
 
     @Override
     public Mongo mongo() throws Exception {
