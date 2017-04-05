@@ -12,13 +12,17 @@ import org.springframework.stereotype.Component;
 public class Test {
 
     @Autowired
-    MyEntityRepository personRepository;
+    MyEntityRepository entityRepository;
+
+    @Autowired
+    MyPersonRepository myPersonRepository;
 
     /**
      * 测试{@link MyEntityRepositoryCustom#saveTenTimes()}方法
      */
     public void testSaveMethod() {
-        personRepository.saveTenTimes();
+        entityRepository.saveTenTimes();
+        myPersonRepository.saveTenTimes();
     }
 
     public static void main(String[] args) {

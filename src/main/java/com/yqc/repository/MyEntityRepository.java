@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 /**
  * Created by Administrator on 2017/3/12.
  */
-public interface MyEntityRepository extends MongoRepository<Person, String>, MyEntityRepositoryCustom {
+public interface MyEntityRepository extends MongoRepository<MyEntity, String>, MyEntityRepositoryCustom<MyEntity> {
 
 }
