@@ -1,23 +1,12 @@
 package com.yqc.save;
 
-import com.yqc.Person;
-import com.yqc.lookup.MyEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.AggregationResults;
-import org.springframework.data.mongodb.core.aggregation.LookupOperation;
-import org.springframework.data.mongodb.core.aggregation.MatchOperation;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,11 +19,15 @@ public class SaveTest {
     MongoOperations mongoOperations;
 
     public void saveEntity() {
-        List<Child> list = new ArrayList();
-        for (int i = 0; i < 10; i++) {
-            list.add(new Child("father" + i, i, "child" + i));
+        List<ResourceCategory> list = new ArrayList();
+        ResourceCategory resourceCategory;
+        for (int i = 10; i < 20; i++) {
+            resourceCategory = new ResourceCategory();
+            resourceCategory.setCategoryName("分类" + i);
+            resourceCategory.setRelationTags(new String[]{"标签" + i, "模拟标签" + i, "测试标签" + i});
+            list.add(resourceCategory);
         }
-        mongoOperations.insert(list, Father.class);
+        mongoOperations.insert(list, ResourceCategory.class);
     }
 
     public static void main(String[] args) {

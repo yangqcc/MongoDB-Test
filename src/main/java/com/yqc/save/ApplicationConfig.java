@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 public class ApplicationConfig extends AbstractMongoConfiguration {
 
-    public static final String collectionName = "t_db"; //MY_DB
+    public static final String collectionName = "sc"; //MY_DB
 
     @Override
     public Mongo mongo() throws Exception {
